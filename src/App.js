@@ -8,13 +8,16 @@ function App() {
 
   useEffect(() => {
     const loadTasks = async () => {
+      console.log(1, process.env.REACT_APP_BACKEND_URL)
       const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}tasks`);
       const data = await res.json();
+      console.log(2, data)
       setTasks(data)
 
     }
     loadTasks();
   }, []);
+  console.log(3, tasks)
 
   useEffect(() => {
     // Connect to the Socket.IO server
